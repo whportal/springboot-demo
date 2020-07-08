@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: springboot-quartz-simple
+  datasource:
+    url: jdbc:mysql://localhost:3306/quartz?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&userSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # quartz 相关属性配置
+  quartz:
+    job-store-type: jdbc # 任务存储方式-存数据库
+    wait-for-jobs-to-complete-on-shutdown: true # 程序结束时会等待quartz相关的进程结束
+    overwrite-existing-jobs: true # QuartzScheduler启动时更新已存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录
+    properties:
+      org:
+        quartz:
+          # scheduler相关
+          scheduler:
+            # scheduler实例名
+            instanceName: myScheduler
+            instanceId: AUTO
+          # 持久化相关
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: false
+            clusterCheckinInterval: 10000
+            useProperties: false
+          # 线程池相关
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+
+
