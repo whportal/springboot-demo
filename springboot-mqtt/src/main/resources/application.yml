@@ -1,0 +1,21 @@
+server:
+  port: 10000
+
+# MQTT Config
+mqtt:
+  # 用户名
+  username:
+  # 密码
+  password:
+  # 推送信息的连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:1883,tcp://192.168.60.133:1883
+  host: tcp://broker.emqx.io
+  # 生产者连接服务器默认客户端ID
+  sender:
+    clientId: mqttProducer
+    # 默认的推送主题，实际可在调用接口时指定
+    defaultTopic: whportal-output
+  # 消费者连接服务器默认客户端ID（这里使用随机数）
+  receiver:
+    clientId: ${random.value}
+    # 默认的接收主题，实际可在调用接口时指定
+    defaultTopic: whportal-input
