@@ -13,13 +13,14 @@
         <module>common</module>
         <module>test-demo</module>
         <module>springboot-mqtt</module>
+        <module>springboot-elasticsearch</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.8.RELEASE</version>
+        <version>2.3.0.RELEASE</version>
     </parent>
 
     <properties>
@@ -28,5 +29,37 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
+        <elasticsearch.version>7.7.0</elasticsearch.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--   锁定ES版本         -->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>elasticsearch-rest-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.client</groupId>-->
+<!--                <artifactId>transport</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch.plugin</groupId>-->
+<!--                <artifactId>transport-netty4-client</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.elasticsearch</groupId>-->
+<!--                <artifactId>elasticsearch</artifactId>-->
+<!--                <version>${elasticsearch.version}</version>-->
+<!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
 </project>

@@ -1,0 +1,12 @@
+server:
+  port: 10086
+#  servlet:
+#    context-path: /es
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
