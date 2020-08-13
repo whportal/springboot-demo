@@ -14,6 +14,7 @@
         <module>test-demo</module>
         <module>springboot-mqtt</module>
         <module>springboot-elasticsearch</module>
+        <module>springboot-protobuf</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
