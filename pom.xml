@@ -15,6 +15,10 @@
         <module>springboot-mqtt</module>
         <module>springboot-elasticsearch</module>
         <module>springboot-protobuf</module>
+        <module>springboot-admin-server</module>
+        <module>springboot-admin-client</module>
+        <module>springboot-websocket</module>
+        <module>springboot-websocket-spring</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
