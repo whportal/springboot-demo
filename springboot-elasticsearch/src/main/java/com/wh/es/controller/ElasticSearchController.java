@@ -70,7 +70,7 @@ public class ElasticSearchController {
     }
 
     @GetMapping("list/template")
-    public Result<CommonPage<SearchHit<OrderInfo>>> listByTemplate(OrderInfoVO orderInfoVO) {
+    public Result<CommonPage<SearchHit<OrderInfo>>> lSearchResultMapperistByTemplate(OrderInfoVO orderInfoVO) {
         Query query = new NativeSearchQueryBuilder()
                 .withQuery(QueryBuilders.matchAllQuery())
                 .withPageable(PageRequest.of(orderInfoVO.getPageNum(), orderInfoVO.getPageSize()))

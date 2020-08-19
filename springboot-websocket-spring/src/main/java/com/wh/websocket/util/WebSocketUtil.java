@@ -33,7 +33,7 @@ public class WebSocketUtil {
      * 添加 Session 。在这个方法中，会添加用户和 Session 之间的映射
      *
      * @param session Session
-     * @param user 用户
+     * @param user    用户
      */
     public static void addSession(WebSocketSession session, String user) {
         // 更新 USER_SESSION_MAP
@@ -61,9 +61,9 @@ public class WebSocketUtil {
     /**
      * 广播发送消息给所有在线用户
      *
-     * @param type 消息类型
+     * @param type    消息类型
      * @param message 消息体
-     * @param <T> 消息类型
+     * @param <T>     消息类型
      */
     public static <T extends Message> void broadcast(String type, T message) {
         // 创建消息
@@ -78,9 +78,9 @@ public class WebSocketUtil {
      * 发送消息给单个用户的 Session
      *
      * @param session Session
-     * @param type 消息类型
+     * @param type    消息类型
      * @param message 消息体
-     * @param <T> 消息类型
+     * @param <T>     消息类型
      */
     public static <T extends Message> void send(WebSocketSession session, String type, T message) {
         // 创建消息
@@ -92,10 +92,10 @@ public class WebSocketUtil {
     /**
      * 发送消息给指定用户
      *
-     * @param user 指定用户
-     * @param type 消息类型
+     * @param user    指定用户
+     * @param type    消息类型
      * @param message 消息体
-     * @param <T> 消息类型
+     * @param <T>     消息类型
      * @return 发送是否成功你那个
      */
     public static <T extends Message> boolean send(String user, String type, T message) {
@@ -113,9 +113,9 @@ public class WebSocketUtil {
     /**
      * 构建完整的消息
      *
-     * @param type 消息类型
+     * @param type    消息类型
      * @param message 消息体
-     * @param <T> 消息类型
+     * @param <T>     消息类型
      * @return 消息
      */
     private static <T extends Message> TextMessage buildTextMessage(String type, T message) {
@@ -128,7 +128,7 @@ public class WebSocketUtil {
     /**
      * 真正发送消息
      *
-     * @param session Session
+     * @param session     Session
      * @param textMessage 消息
      */
     private static void sendTextMessage(WebSocketSession session, TextMessage textMessage) {

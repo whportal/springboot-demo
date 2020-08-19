@@ -6,6 +6,15 @@ import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.RestClients;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
 
+/**
+ * <p>
+ * 该配置非必需，当需要使用 RestHighLevelClient 时才需要
+ * </p>
+ *
+ * @author Wenhao Wang
+ * @version 1.0.0
+ * @date 2020/08/10
+ */
 @Configuration
 public class RestClientConfig extends AbstractElasticsearchConfiguration {
 

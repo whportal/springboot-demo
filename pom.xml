@@ -19,6 +19,7 @@
         <module>springboot-admin-client</module>
         <module>springboot-websocket</module>
         <module>springboot-websocket-spring</module>
+        <module>springboot-redis</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
