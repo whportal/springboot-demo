@@ -40,7 +40,7 @@
         <elasticsearch.version>7.7.0</elasticsearch.version>
         <mybatis.plus.version>3.3.2</mybatis.plus.version>
         <mybatis.plus.generate.version>3.3.2</mybatis.plus.generate.version>
-        <mysql.version>5.1.48</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <pagehelper.version>1.2.13</pagehelper.version>
     </properties>
 
