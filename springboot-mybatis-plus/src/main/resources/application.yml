@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 自动提交
+      auto-commit: true
+      connection-test-query: SELECT 1
+      # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
+      # 生产环境 connect-time 10 s
+      connection-timeout: 9000
+      # 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      idle-timeout: 600000
+      # 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms，建议设置比数据库超时时长少60秒，参考MySQL wait_timeout 7200s 参数（# 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms，建议设置比数据库超时时长少60秒，参考MySQL wait_timeout参数（show variables like '%timeout%';） -->  ） -->
+      max-lifetime: 1800000
+      # 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+      maximum-pool-size: 15
+      # 最小连接数
+      minimum-idle: 10
+      # 连接池名字
+      pool-name: DemoHikariCP
+  profiles:
+    active: dev
+# 分页插件配置
+pagehelper:
+  # 分页插件会自动检测当前的数据库链接，自动选择合适的分页方式。 可以使用下面的缩写值：oracle,mysql,mariadb,sqlite,hsqldb,postgresql,db2,sqlserver,informix,h2,sqlserver2012,derby
+  helper-dialect: mysql
+  # 分页合理化参数，默认值为false。当该参数设置为 true 时，pageNum<=0 时会查询第一页， pageNum>pages（超过总数时），会查询最后一页。默认false 时，直接根据参数进行查询。
+  reasonable: true
+  # supportMethodsArguments：支持通过 Mapper 接口参数来传递分页参数，默认值false，分页插件会从查询方法的参数值中，自动根据上面 params 配置的字段中取值，查找到合适的值时就会自动分页
+  support-methods-arguments: true
+  # params：为了支持startPage(Object params)方法，增加了该参数来配置参数映射，用于从对象中根据属性名取值，
+  # 可以配置 pageNum,pageSize,count,pageSizeZero,reasonable，
+  # 不配置映射的用默认值， 默认值为pageNum=pageNum;pageSize=pageSize;count=countSql;reasonable=reasonable;pageSizeZero=pageSizeZero。
+  # params: count=countSql
+
+mybatis-plus:
+  # 配置 mapper.xml 文件的位置
+  mapper-locations: classpath*:com/wh/**/mapper/**/*.xml
+  # 配置类型别名的包路径，多个路径使用 ; 分割
+  type-aliases-package: com.wh.db.entity;com.wh.db.dto
+  # 枚举包扫描
+  type-enums-package: com.wh.db.enums
+  # mybatis 原生配置
+  configuration:
+    # 是否开启驼峰命名自动映射，即从经典数据库列名 A_COLUMN 映射到经典 Java 属性名 aColumn，默认值 false
+    map-underscore-to-camel-case: true
+    # 全局性地开启或关闭所有映射器配置文件中已配置的任何缓存 默认值 true
+    cache-enabled: true
+    # 当没有为参数指定特定的 JDBC 类型时，空值的默认 JDBC 类型。 某些数据库驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，比如 NULL、VARCHAR 或 OTHER。默认值 OTHER
+    jdbc-type-for-null: null
+  # 全局配置
+  global-config:
+    db-config:
+      # 表名、是否使用下划线命名（默认 true:默认数据库表下划线命名）
+      table-underline: true
+      # 更新时字段验证策略 默认 not_null 即 null 值忽略更新
+      update-strategy: not_null

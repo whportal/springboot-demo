@@ -20,6 +20,8 @@
         <module>springboot-websocket</module>
         <module>springboot-websocket-spring</module>
         <module>springboot-redis</module>
+        <module>springboot-mybatis-plus</module>
+        <module>springboot-mybatis-plus-generate</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
@@ -36,6 +38,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <elasticsearch.version>7.7.0</elasticsearch.version>
+        <mybatis.plus.version>3.3.2</mybatis.plus.version>
+        <mybatis.plus.generate.version>3.3.2</mybatis.plus.generate.version>
+        <mysql.version>5.1.48</mysql.version>
+        <pagehelper.version>1.2.13</pagehelper.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +72,31 @@
 <!--                <artifactId>elasticsearch</artifactId>-->
 <!--                <version>${elasticsearch.version}</version>-->
 <!--            </dependency>-->
+
+            <!--   锁定 Mybatis-Plus 版本         -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <!--   锁定 Mybatis-Plus-Generate 版本         -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus.generate.version}</version>
+            </dependency>
+            <!--   锁定 mysql 版本         -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--   锁定 pagehelper 版本         -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
