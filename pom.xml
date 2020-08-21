@@ -22,6 +22,7 @@
         <module>springboot-redis</module>
         <module>springboot-mybatis-plus</module>
         <module>springboot-mybatis-plus-generate</module>
+        <module>springboot-redisson</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
@@ -42,6 +43,7 @@
         <mybatis.plus.generate.version>3.3.2</mybatis.plus.generate.version>
         <mysql.version>5.1.48</mysql.version>
         <pagehelper.version>1.2.13</pagehelper.version>
+        <redisson.version>3.13.3</redisson.version>
     </properties>
 
     <dependencyManagement>
@@ -96,6 +98,12 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.version}</version>
+            </dependency>
+            <!--   锁定 redisson 版本         -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
