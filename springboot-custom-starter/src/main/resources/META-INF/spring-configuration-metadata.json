@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "name": "wh-portal",
+      "type": "com.wh.starter.WhPortalProperties",
+      "sourceType": "com.wh.starter.WhPortalProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "wh-portal.msg",
+      "type": "java.lang.String",
+      "sourceType": "com.wh.starter.WhPortalProperties",
+      "defaultValue": "水星记"
+    },
+    {
+      "name": "wh-portal.name",
+      "type": "java.lang.String",
+      "sourceType": "com.wh.starter.WhPortalProperties",
+      "defaultValue": "wh-portal"
+    }
+  ],
+  "hints": []
+}
