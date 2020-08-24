@@ -21,6 +21,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -94,6 +95,7 @@ public class RedissonTest {
         user.setAge(18);
         user.setBirthday(new Date());
         user.setMoney(200000000000000L);
+        user.setCreate(LocalDateTime.now());
         RBucket<User> bucket = redissonClient.getBucket("redisson:hash:user");
         bucket.set(user);
         User redissonUser = bucket.get();

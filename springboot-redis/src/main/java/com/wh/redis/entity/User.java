@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -29,4 +30,6 @@ public class User implements Serializable {
     private Long money;
 
     private Date birthday;
+
+    private LocalDateTime create;
 }

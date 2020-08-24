@@ -1,6 +1,7 @@
 package com.wh.redisson.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -26,6 +27,16 @@ public class User implements Serializable {
     private Long money;
 
     private Date birthday;
+
+    private LocalDateTime create;
+
+    public LocalDateTime getCreate() {
+        return create;
+    }
+
+    public void setCreate(LocalDateTime create) {
+        this.create = create;
+    }
 
     public String getUsername() {
         return username;
@@ -83,12 +94,13 @@ public class User implements Serializable {
                 Objects.equals(password, user.password) &&
                 Objects.equals(age, user.age) &&
                 Objects.equals(money, user.money) &&
-                Objects.equals(birthday, user.birthday);
+                Objects.equals(birthday, user.birthday) &&
+                Objects.equals(create, user.create);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, age, money, birthday);
+        return Objects.hash(username, password, age, money, birthday, create);
     }
 
     @Override
@@ -99,6 +111,7 @@ public class User implements Serializable {
                 ", age=" + age +
                 ", money=" + money +
                 ", birthday=" + birthday +
+                ", create=" + create +
                 '}';
     }
 }

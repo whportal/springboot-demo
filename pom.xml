@@ -23,6 +23,7 @@
         <module>springboot-mybatis-plus</module>
         <module>springboot-mybatis-plus-generate</module>
         <module>springboot-redisson</module>
+        <module>springboot-cache</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->

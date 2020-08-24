@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -67,6 +68,7 @@ public class RedisTemplateTest extends BaseTest {
         user.setAge(18);
         user.setBirthday(new Date());
         user.setMoney(200000000000000L);
+        user.setCreate(LocalDateTime.now());
         HashOperations<String, String, User> stringObjectObjectHashOperations = redisTemplate.opsForHash();
         stringObjectObjectHashOperations.put("TEST:USER:HASH", "007", user);
         User result = stringObjectObjectHashOperations.get("TEST:USER:HASH", "007");
@@ -78,9 +80,10 @@ public class RedisTemplateTest extends BaseTest {
         User user = new User();
         user.setUsername("JackMa");
         user.setPassword("123456");
-        user.setAge(18);
+        // user.setAge(null);
         user.setBirthday(new Date());
         user.setMoney(200000000000000L);
+        user.setCreate(LocalDateTime.now());
 
         // 保存对象 到 string 类型（会被序列化为 JSON 存储）
         redisTemplate.opsForValue().set("TEST:USER:STRING:HASH", user);
