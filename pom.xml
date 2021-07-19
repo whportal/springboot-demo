@@ -25,6 +25,7 @@
         <module>springboot-redisson</module>
         <module>springboot-cache</module>
         <module>springboot-custom-starter</module>
+        <module>springboot-kafka</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 引入springboot依赖的方式1   -->
